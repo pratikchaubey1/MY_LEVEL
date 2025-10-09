@@ -12,12 +12,11 @@ import MenuDrawer from './MenuDrawer.jsx';
 function Navbar() {
   const {isscroll}= useContext(ProductContext)
   return (
-    <div className='font-poppins bg-white justify-between text-gray-900 overflow-x-hidden border-2 '>
+   <div className="font-poppins bg-white justify-between text-gray-900 overflow-x-hidden border-b-2">
       <motion.div
-        initial={{ y: -20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ type: 'spring', stiffness: 300, damping: 24 }}
-        className={`fixed top-0 left-0 w-full h-20 z-50 transition-colors duration-500 ${isscroll ? 'bg-white/80  shadow-md' : 'bg-transparent'} `}
+        className={`fixed top-0 left-0 w-full h-20 z-50 transition-colors duration-500 ${
+          isscroll ? "bg-white shadow-md" : "bg-transparent"
+        }`}
       >
         <div className='max-w-7xl mx-auto relative px-4 sm:px-6 py-2 sm:py-3 flex justify-center items-center'>
           <Logo/>

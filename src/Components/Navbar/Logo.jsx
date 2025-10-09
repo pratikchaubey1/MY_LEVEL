@@ -5,8 +5,6 @@ import { Link, useLocation } from "react-router-dom";
 import { ProductContext } from "../../Context/Productcontext/ProductContext";
 import { UseLogoTransforms } from "../../Context/Productcontext/UseLogoTransforms";
 
-
-
 const Logo = () => {
   const { isscroll } = useContext(ProductContext);
   const { logoSize, logoY, logoX, isDesktop } = UseLogoTransforms();
@@ -14,7 +12,7 @@ const Logo = () => {
   const isLanding = location.pathname === "/";
 
   return (
-    <Link to="/" className="font-playfair tracking-widest w-full">
+     <Link to="/" className="font-playfair tracking-widest w-full">
       <div
         className={`flex items-center mt-5 ${
           isDesktop ? "justify-center" : "justify-start px-4"
@@ -27,7 +25,6 @@ const Logo = () => {
               : { fontSize: "3vw", y: 1, x: -11 }
           }
           className={`font-serif transition-colors duration-500 ${
-            // Use a visible color on the current (white) background
             isscroll ? "text-gray-900" : isLanding ? "text-gray-100" : "text-gray-900"
           }`}
         >

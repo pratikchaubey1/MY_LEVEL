@@ -1,0 +1,29 @@
+import React from "react";
+import Shirts from "../assets/Shirts.png";
+function Shirt() {
+  return (
+    <div>
+      {/* Title */}
+      <h1 className="bg-gray-100 px-4 py-2 mt-20 text-xl font-mono flex items-center gap-2">
+        Shirts <span className="text-sm text-gray-600"></span>
+      </h1>
+
+      {/*  Back Button */}
+      <button
+        onClick={() => navigate("/")}
+        className="mt-5 ml-263 px-4 py-2  text-black  transition"
+      >
+        ← Back To Home Page
+      </button>
+      {/* Top Image Banner */}
+      <div className="w-full h-[400px] mt-3 relative flex items-center justify-center overflow-hidden">
+        <div
+          className="absolute inset-0 bg-contain bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${Shirts}}})` }}
+        ></div>
+      </div>
+    </div>
+  );
+}
+
+export default Shirt;
