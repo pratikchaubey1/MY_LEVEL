@@ -12,16 +12,18 @@ function Sneaker() {
         Sneakers <span className="text-sm text-gray-600"></span>
       </h1>
       {/*  Back Button */}
-      <button
-        onClick={() => navigate("/")}
-        className="mt-5 ml-263 px-4 py-2  text-black  transition"
-      >
-        ← Back To Home Page
-      </button>
+     <div className="flex justify-end mt-5">
+        <button
+          onClick={() => navigate("/")}
+          className="px-4 py-2 text-black  transition"
+        >
+          ← Back To Home Page
+        </button>
+      </div>
       {/* Top Image Banner */}
-      <div className="w-full h-[400px] mt-3 relative flex items-center justify-center overflow-hidden">
+     <div className="w-full mt-3 relative flex items-center justify-center overflow-hidden">
         <div
-          className="absolute inset-0 bg-contain bg-center bg-no-repeat"
+          className="w-full h-64 sm:h-80 md:h-96 lg:h-[400px] bg-contain bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${SneakerImg})` }}
         ></div>
       </div>

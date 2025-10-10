@@ -6,6 +6,7 @@ import Sneaker from "./Page/Sneaker";
 import Shirt from "./Page/Shirt";
 import Jeans from "./Page/Jeans";
 import Bag from "./Page/Bag";
+import All from "./Page/All";
 
 function App() {
   const location = useLocation();
@@ -13,7 +14,7 @@ function App() {
   const noPaddingOnLanding = paths.includes(location.pathname);
 
   return (
-    <div className=" bg-amber-50">
+    <div className=" bg-white/90">
       <Navbar />
       <div className={noPaddingOnLanding ? "" : "mt-22"}>
         <Routes>
@@ -22,6 +23,7 @@ function App() {
           <Route path="/Jeans" element={<Jeans />} />
           <Route path="/Shirt" element={<Shirt />} />
           <Route path="/Sneaker" element={<Sneaker />} />
+          <Route path="/All" element={<All/>}/>
         </Routes>
       </div>
     </div>

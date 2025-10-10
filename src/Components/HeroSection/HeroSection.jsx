@@ -26,11 +26,11 @@ const HeroSection = () => {
         {...heroContainerAnim}
       >
         <motion.h1
-          className="text-3xl sm:text-2xl md:text-3xl lg:text-4xl font-serif text-gray-100 text-center"
+          className="text-3xl sm:text-2xl md:text-3xl lg:text-4xl font-serif text-black text-center"
           {...heroTitleAnim}
           whileHover={{ scale: 1.05 }}
         >
-          Gifts That Speak Your Heart
+         Fashion 2025
         </motion.h1>
 
         <motion.div
@@ -38,7 +38,7 @@ const HeroSection = () => {
           {...heroButtonAnim}
         >
           {/* Correct Link */}
-          <Link to="/MainCard">
+          <Link to="/All">
             <motion.button
               className="py-2 px-5 sm:py-3 sm:px-7 bg-transparent border border-gray-100 rounded-md text-black transition duration-300 ease-in-out hover:bg-black hover:text-white"
               whileHover={{ scale: 1.05 }}
