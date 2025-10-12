@@ -74,7 +74,7 @@ function VideoTwo() {
         viewport={{ once: true }}
       >
         <h1 className="text-3xl font-medium mb-4 text-black text-center">
-          DOOZIE SERVICES
+          LEVEL SERVICES
         </h1>
       </motion.div>
 
