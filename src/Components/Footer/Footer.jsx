@@ -19,7 +19,7 @@ function Footer() {
         </div>
         {/* Right Info */}
         <div className="text-xs text-right leading-relaxed">
-          <p>8 years of experience</p>
+          <p> More than  years of experience</p>
           <a
             href="#"
             className="underline text-gray-400 hover:text-white block my-1"
