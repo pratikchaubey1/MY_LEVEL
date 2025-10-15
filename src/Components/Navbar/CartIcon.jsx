@@ -10,6 +10,8 @@ function CartIcon() {
               >
                 <FiShoppingBag className="text-2xl" />
               </button>
+
+              
     </div>
   )
 }

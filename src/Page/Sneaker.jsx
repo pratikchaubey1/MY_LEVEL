@@ -4,11 +4,14 @@ import { useNavigate } from "react-router-dom";
 import { ProductContext } from "../Context/Productcontext/ProductContext";
 import { TbArrowsShuffle } from "react-icons/tb";
 import { IoArrowBack } from "react-icons/io5";
+import Maincard from './Maincard';
 
 function Sneaker() {
   const navigate = useNavigate();
   const { sneakersData } = useContext(ProductContext);
   const [shuffledSneakers, setShuffledSneakers] = useState([]);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   // Fisher-Yates shuffle algorithm
   const shuffleArray = (array) => {
     const shuffled = [...array];
@@ -27,8 +30,18 @@ function Sneaker() {
   }, [sneakersData]);
 
   const handleProductClick = (product) => {
-    console.log("Product clicked:", product);
-    // navigate(`/product/${product.id}`);
+    setSelectedProduct(product);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedProduct(null);
+  };
+
+  const handleProductSelect = (product) => {
+    setSelectedProduct(product);
+    setIsModalOpen(true);
   };
 
   const handleShuffle = () => {
@@ -59,7 +72,7 @@ function Sneaker() {
           className="px-4 py-2 text-black transition hover:bg-gray-100 rounded flex items-center gap-2"
         >
           <IoArrowBack className="text-lg" />
-          Back To Home Page
+          Back 
         </button>
       </div>
       {/* Top Image Banner */}
@@ -177,6 +190,14 @@ function Sneaker() {
           </div>
         )}
       </div>
+      
+      {/* Maincard Modal */}
+      <Maincard 
+        product={selectedProduct}
+        onClose={handleCloseModal}
+        isOpen={isModalOpen}
+        onProductSelect={handleProductSelect}
+      />
     </div>
   );
 }

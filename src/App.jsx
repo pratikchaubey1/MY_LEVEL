@@ -7,6 +7,7 @@ import Shirt from "./Page/Shirt";
 import Jeans from "./Page/Jeans";
 import Bag from "./Page/Bag";
 import All from "./Page/All";
+import Aboutus from "./Page/Aboutus";
 
 function App() {
   const location = useLocation();
@@ -23,7 +24,9 @@ function App() {
           <Route path="/Jeans" element={<Jeans />} />
           <Route path="/Shirt" element={<Shirt />} />
           <Route path="/Sneaker" element={<Sneaker />} />
+          <Route path="/About" element={<Aboutus/>}/>
           <Route path="/All" element={<All/>}/>
+           
         </Routes>
       </div>
     </div>

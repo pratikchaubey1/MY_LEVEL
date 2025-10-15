@@ -13,8 +13,8 @@ function Footer() {
         </div>
         {/* Center Name */}
         <div className="flex flex-col items-center justify-center text-center">
-          <h1 className="text-5xl sm:text-7xl font-bold text-white tracking-tighter mb-4">
-            LEVEL
+          <h1 className="text-5xl sm:text-7xl font-semibold text-white tracking-tighter mb-4">
+            L E V E L
           </h1>
         </div>
         {/* Right Info */}

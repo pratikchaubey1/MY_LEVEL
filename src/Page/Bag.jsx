@@ -4,11 +4,14 @@ import { useNavigate } from "react-router-dom";
 import { ProductContext } from "../Context/Productcontext/ProductContext";
 import { TbArrowsShuffle } from "react-icons/tb";
 import { IoArrowBack } from "react-icons/io5";
+import Maincard from './Maincard';
 
 function Bag() {
   const navigate = useNavigate();
   const { bagsData, all } = useContext(ProductContext);
   const [shuffledBags, setShuffledBags] = useState([]);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   // Fisher-Yates shuffle algorithm
   const shuffleArray = (array) => {
     const shuffled = [...array];
@@ -27,9 +30,18 @@ function Bag() {
   }, [bagsData]);
 
   const handleProductClick = (product) => {
-    // You can navigate to a product detail page or handle the click as needed
-    console.log("Product clicked:", product);
-    // navigate(`/product/${product.id}`);
+    setSelectedProduct(product);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedProduct(null);
+  };
+
+  const handleProductSelect = (product) => {
+    setSelectedProduct(product);
+    setIsModalOpen(true);
   };
 
   const handleShuffle = () => {
@@ -61,7 +73,7 @@ function Bag() {
           className="px-4 py-2 text-black transition hover:bg-gray-100 rounded flex items-center gap-2"
         >
           <IoArrowBack className="text-lg" />
-          Back To Home Page
+          Back 
         </button>
       </div>
 
@@ -180,6 +192,14 @@ function Bag() {
           </div>
         )}
       </div>
+      
+      {/* Maincard Modal */}
+      <Maincard 
+        product={selectedProduct}
+        onClose={handleCloseModal}
+        isOpen={isModalOpen}
+        onProductSelect={handleProductSelect}
+      />
     </div>
   );
 }

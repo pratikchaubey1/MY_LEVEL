@@ -7,10 +7,10 @@ function MenuDrawer() {
   const [isOpen, setIsOpen] = useState(false);
 
   const menuItems = [
-    { label: "Sneaker", path: "/For_him" },
-    { label: "Shirt", path: "/For_her" },
-    { label: "Bag", path: "/For_relationship" },
-    { label: "Jean", path: "/For_kido" },
+    { label: "Sneaker", path: "/Sneaker" },
+    { label: "Shirt", path: "/Shirt" },
+    { label: "Bag", path: "/Bag" },
+    { label: "Jean", path: "/Jeans" },
   ];
 
   return (
@@ -65,7 +65,7 @@ function MenuDrawer() {
           {/* Footer link */}
           <div className="mt-8 border-t border-gray-200 pt-4 text-sm text-gray-600">
             <Link
-              to="/about-us"
+              to="/About"
               onClick={() => setIsOpen(false)}
               className="hover:text-gray-900 transition-colors duration-300"
             >

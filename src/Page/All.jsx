@@ -3,11 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import { ProductContext } from '../Context/Productcontext/ProductContext';
 import { TbArrowsShuffle } from 'react-icons/tb';
 import { IoArrowBack } from 'react-icons/io5';
+import Maincard from './Maincard';
 
 function All() {
   const navigate = useNavigate();
   const { alldata } = useContext(ProductContext);
   const [shuffledData, setShuffledData] = useState([]);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Fisher-Yates shuffle algorithm
   const shuffleArray = (array) => {
@@ -27,9 +30,18 @@ function All() {
   }, [alldata]);
 
   const handleProductClick = (product) => {
-    // You can navigate to a product detail page or handle the click as needed
-    console.log('Product clicked:', product);
-    // navigate(`/product/${product.id}`);
+    setSelectedProduct(product);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedProduct(null);
+  };
+
+  const handleProductSelect = (product) => {
+    setSelectedProduct(product);
+    setIsModalOpen(true);
   };
 
   const handleShuffle = () => {
@@ -89,6 +101,14 @@ function All() {
           </div>
         )}
       </div>
+      
+      {/* Maincard Modal */}
+      <Maincard 
+        product={selectedProduct}
+        onClose={handleCloseModal}
+        isOpen={isModalOpen}
+        onProductSelect={handleProductSelect}
+      />
     </div>
   );
 }
