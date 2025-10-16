@@ -70,7 +70,7 @@ function All() {
           className="px-4 py-2 text-black transition hover:bg-gray-100 rounded flex items-center gap-2"
         >
           <IoArrowBack className="text-lg" />
-          Back To Home Page
+          Back 
         </button>
       </div>
       <div className="bg-white mt-10 px-4 sm:px-10">

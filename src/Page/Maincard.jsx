@@ -9,7 +9,7 @@ import 'swiper/css/pagination';
 
 function Maincard({ product, onClose, isOpen, onProductSelect }) {
   const [selectedSize, setSelectedSize] = useState('');
-  const { alldata } = useContext(ProductContext);
+  const { alldata, addToCart } = useContext(ProductContext);
 
   if (!isOpen || !product) return null;
 
@@ -20,12 +20,20 @@ function Maincard({ product, onClose, isOpen, onProductSelect }) {
 
   const handleAddToCart = () => {
     if (!selectedSize) {
-      alert("Please select a size!");
       return;
     }
     
-    // Since cart functionality doesn't exist yet, we'll just show a success message
-    alert(`Added ${product.Name} (Size: ${selectedSize}) to cart!`);
+    // Add product to cart with selected size
+    const productWithSize = {
+      ...product,
+      selectedSize,
+      name: product.Name,
+      image: product.Img,
+      price: product.Price,
+      category: product.category
+    };
+    
+    addToCart(productWithSize);
     onClose();
   };
 

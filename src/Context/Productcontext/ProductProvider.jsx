@@ -3,6 +3,7 @@ import { ProductContext } from "./ProductContext";
 
 function ProductProvider({ children }) {
   const [isscroll, setisscroll] = useState(false);
+    const [cart, setcart] = useState([]);
   useEffect(() => {
     const handleScroll = () => setisscroll(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
@@ -633,7 +634,24 @@ function ProductProvider({ children }) {
   const jeansData = alldata.filter(item => item.category === "Jeans");
   const shirtsData = alldata.filter(item => item.category === "Shirts");
 
- 
+    const addToCart = (product) => {
+    setcart((prevCart) => {
+      const isExist = prevCart.find((item) => item.id === product.id);
+      if (isExist) {
+        return prevCart.map((item) =>
+          item.id === product.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        );
+      } else {
+        return [...prevCart, { ...product, quantity: 1 }];
+      }
+    });
+  };
+
+  const removeFromCart = (id) => {
+    setcart((prevCart) => prevCart.filter((item) => item.id !== id));
+  };
 
   return (
     <ProductContext.Provider
@@ -645,6 +663,10 @@ function ProductProvider({ children }) {
         bagsData,
         jeansData,
         shirtsData,
+        cart, 
+        setcart,
+        addToCart,
+        removeFromCart
       }}
     >
       {children}
