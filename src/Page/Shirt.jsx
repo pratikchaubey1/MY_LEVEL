@@ -94,6 +94,7 @@ function Shirt() {
             {shuffledShirts.slice(0, 8).map((item) => (
               <div
                 key={item.id}
+                data-product-id={item.id}
                 onClick={() => handleProductClick(item)}
                 className="bg-white overflow-hidden hover:scale-105 transform transition duration-300 ease-in-out mx-auto w-[90%] sm:w-full cursor-pointer shadow-sm hover:shadow-md"
               >
@@ -134,6 +135,7 @@ function Shirt() {
                 {shuffledShirts.slice(8, 10).map((item) => (
                   <div
                     key={item.id}
+                    data-product-id={item.id}
                     onClick={() => handleProductClick(item)}
                     className="bg-white overflow-hidden hover:scale-105 mt-8 transform transition duration-300 ease-in-out mx-auto w-[90%] sm:w-full"
                   >
@@ -164,6 +166,7 @@ function Shirt() {
             {shuffledShirts.slice(10, 18).map((item) => (
               <div
                 key={item.id}
+                data-product-id={item.id}
                 onClick={() => handleProductClick(item)}
                 className="bg-white overflow-hidden hover:scale-105 transform transition duration-300 ease-in-out mx-auto w-[90%] sm:w-full cursor-pointer shadow-sm hover:shadow-md"
               >

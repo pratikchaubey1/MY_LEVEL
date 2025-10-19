@@ -83,6 +83,7 @@ function All() {
             {shuffledData.map((item) => (
             <div
               key={item.id}
+              data-product-id={item.id}
               onClick={() => handleProductClick(item)}
               className="bg-white overflow-hidden hover:scale-105 transform transition duration-300 ease-in-out mx-auto w-[90%] sm:w-full cursor-pointer shadow-sm hover:shadow-md"
             >
