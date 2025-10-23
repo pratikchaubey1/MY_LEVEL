@@ -13,7 +13,7 @@ function VideoTwo() {
       id: 1,
       name: "Clothing Quality",
       videoSrc: ServiceOne,
-      link: "/serviceOne",
+      link: "/serOne",
       description:
         "At LEVEL, clothing quality means more than fabric—it’s the promise of comfort, durability, and timeless style.",
     },
@@ -21,7 +21,7 @@ function VideoTwo() {
       id: 2,
       name: "Sneaker Fashion",
       videoSrc: ServiceTwo,
-      link: "/serviceTwo",
+      link: "/serTwo",
       description:
         "Sneaker fashion at LEVEL represents individuality and confidence. Comfortable yet bold, our sneakers stand out.",
     },
@@ -29,7 +29,7 @@ function VideoTwo() {
       id: 3,
       name: "Cool Outfits",
       videoSrc: ServiceThree,
-      link: "/serviceThree",
+      link: "/serThree",
       description:
         "Cool outfits are all about effortless style and versatility. Looks curated for every occasion.",
     },

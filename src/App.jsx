@@ -9,6 +9,11 @@ import Bag from "./Page/Bag";
 import All from "./Page/All";
 import Aboutus from "./Page/Aboutus";
 import CartPage from "./Components/Navbar/CartPage";
+import Keep from "./Page/ServiceofLevel/Keep";
+import SerTwo from "./Page/ServiceofLevel/SerTwo";
+import SerThree from "./Page/ServiceofLevel/SerThree";
+import Serone from "./Page/ServiceofLevel/Serone";
+
 
 function App() {
   const location = useLocation();
@@ -28,6 +33,10 @@ function App() {
           <Route path="/About" element={<Aboutus/>}/>
           <Route path="/All" element={<All/>}/>
            <Route path="/cart" element={<CartPage/>}/>
+           <Route path="/Keep" element={<Keep/>}/>
+           <Route path="/SerTwo" element={<SerTwo/>}/>
+           <Route path="/SerThree" element={<SerThree/>}/>
+           <Route path="/SerOne" element={<Serone/>}/>
         </Routes>
       </div>
     </div>

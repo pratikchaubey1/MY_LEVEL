@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import VideoOneV from "../../../assets/Main.mp4";
 import { FaPlay, FaPause, FaVolumeMute, FaVolumeUp } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 function VideoOne() {
   const videoRef = useRef(null);
@@ -61,10 +62,12 @@ function VideoOne() {
           personal stories.
         </p>
         <div className="text-center mt-6">
+           <Link to="/Keep" >
           <button className="py-2 px-4 transition duration-300 relative group">
             Keep Discovering
             <span className="block w-0 group-hover:w-full h-[1px] bg-black mx-auto mt-2 transition-all duration-500"></span>
           </button>
+          </Link>
         </div>
       </div>
     </div>
