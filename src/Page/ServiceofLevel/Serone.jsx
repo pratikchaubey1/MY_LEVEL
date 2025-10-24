@@ -1,7 +1,13 @@
 import React, { useRef, useState } from "react";
-import { FaPlay, FaPause, FaVolumeMute, FaVolumeUp } from "react-icons/fa";
+import {
+  FaPlay,
+  FaPause,
+  FaVolumeMute,
+  FaVolumeUp,
+  FaPlus,
+} from "react-icons/fa";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom"; // ✅ Added Link import
+import { Link } from "react-router-dom";
 import SerOneVid from "../../assets/serOne.mp4";
 import NikeOne from "../../assets/NikeOne.png";
 import NikeTwo from "../../assets/NikeTwo.png";
@@ -9,6 +15,7 @@ import Cone from "../../assets/COne.png";
 import Ctwo from "../../assets/CTwo.png";
 import Cthree from "../../assets/CThree.png";
 import Instore from "./Instore";
+
 function Serone() {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(true);
@@ -30,23 +37,17 @@ function Serone() {
   };
 
   const [data] = useState([
-    {
-      id: 1,
-      name: "Discover the art of travel.",
-      Img: NikeOne,
-    },
-    {
-      id: 2,
-      name: "For journeys that define you.",
-      Img: NikeTwo,
-    },
+    { id: 1, name: "Discover the art of travel.", Img: NikeOne },
+    { id: 2, name: "For journeys that define you.", Img: NikeTwo },
   ]);
+
   const [categories] = useState([
-    { id: 1, name: "Sneaker", Img: Cone , path: "/Sneaker" },
-    { id: 2, name: "Jeans", Img: Ctwo ,path: "/Jeans"},
+    { id: 1, name: "Sneaker", Img: Cone, path: "/Sneaker" },
+    { id: 2, name: "Jeans", Img: Ctwo, path: "/Jeans" },
     { id: 3, name: "Shirts", Img: Cthree, path: "/Shirt" },
   ]);
-   const categoryCardAnim = (index) => ({
+
+  const categoryCardAnim = (index) => ({
     initial: { opacity: 0, y: 30 },
     animate: { opacity: 1, y: 0 },
     transition: { delay: index * 0.1, duration: 0.4 },
@@ -95,15 +96,15 @@ function Serone() {
         </div>
       </div>
 
-      {/* Center Buttons */}
+      {/* Center Buttons with Animated Border */}
       <div className="flex items-center justify-center gap-20 mt-10">
-        <button className="text-md font-sans px-4 pb-1 border-b-2 border-black hover:border-gray-700 transition-all duration-300">
+        <button className="relative text-md font-sans px-4 pb-1 group">
           Online
+          <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-black transition-all duration-500 group-hover:w-full"></span>
         </button>
-        <Link to="/Instore">
-        <button className="text-md font-sans px-4 pb-1 border-b-2 border-black hover:border-gray-700 transition-all duration-300">
-          Store
-        </button>
+        <Link to="/Instore" className="relative group">
+          <button className="text-md font-sans px-4 pb-1">Store</button>
+          <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-black transition-all duration-500 group-hover:w-full"></span>
         </Link>
       </div>
 
@@ -126,51 +127,87 @@ function Serone() {
       </div>
 
       {/* Image Grid Section */}
-
       <div className="px-4 sm:px-10 mt-10 flex flex-wrap justify-center items-center gap-6">
         {data.map((item) => (
           <Link to="/" key={item.id}>
-            <div className="bg-white/90 hover:bg-white overflow-hidden cursor-pointer transition-transform duration-300  flex flex-col items-center ">
+            <div className="bg-white/90 hover:bg-white overflow-hidden cursor-pointer transition-transform duration-300 flex flex-col items-center">
               <img
                 src={item.Img}
                 alt={item.name}
-                className="w-[px] h-[430px] object-cover rounded-t-xl"
+                className="w-full h-[430px] object-cover rounded-t-xl"
               />
-              <h1 className="text-xl font-sans text-black text-center py-4   pb-1 border-b-2 border-black">
+              <h1 className="relative text-xl font-sans text-black text-center py-4 pb-1 group">
                 {item.name}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-black transition-all duration-500 group-hover:w-full"></span>
               </h1>
             </div>
           </Link>
         ))}
       </div>
-             <div className="px-4 sm:px-10 mt-15 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 sm:gap-8 justify-items-center">
-      {categories.map((item, index) => (
-        <Link to={item.path} key={item.id}>
-          <motion.div
-            {...categoryCardAnim(index)}
-            whileHover={{
-              scale: 1.05,
-              transition: { duration: 0.2, ease: "easeOut" },
-            }}
-            whileTap={{
-              scale: 0.95,
-              transition: { duration: 0.1 },
-            }}
-            className="bg-white/90 hover:bg-white overflow-hidden cursor-pointer rounded-xl"
-          >
-            <img
-              src={item.Img}
-              alt={item.name}
-              className="w-full h-64 sm:h-72 md:h-80 object-cover"
-            />
-            <h1 className="text-xl font-semibold text-black text-center py-3">
-              {item.name}
-            </h1>
-          </motion.div>
-        </Link>
-      ))}
-    </div>
-    <Instore/>
+
+      {/* Category Grid Section */}
+      <div className="px-4 sm:px-10 mt-15 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 sm:gap-8 justify-items-center">
+        {categories.map((item, index) => (
+          <Link to={item.path} key={item.id}>
+            <motion.div
+              {...categoryCardAnim(index)}
+              whileHover={{
+                scale: 1.05,
+                transition: { duration: 0.2, ease: "easeOut" },
+              }}
+              whileTap={{ scale: 0.95, transition: { duration: 0.1 } }}
+              className="bg-white/90 hover:bg-white overflow-hidden cursor-pointer rounded-xl"
+            >
+              <img
+                src={item.Img}
+                alt={item.name}
+                className="w-full h-64 sm:h-72 md:h-80 object-cover"
+              />
+              <h1 className="relative text-xl font-semibold text-black text-center py-3 group">
+                {item.name}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-black transition-all duration-500 group-hover:w-full"></span>
+              </h1>
+            </motion.div>
+          </Link>
+        ))}
+      </div>
+
+      {/* Instore Component */}
+      <Instore />
+
+      <div className="flex flex-col items-center justify-center text-center mt-10 space-y-6 px-6 max-w-4xl mx-auto">
+        {/* Main Help Title with animated underline */}
+        <h1 className="relative text-3xl font-semibold group">
+          May we help you?
+          <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-black transition-all duration-500 group-hover:w-full"></span>
+        </h1>
+
+        {/* Subheading */}
+        <p className="text-3xl font-semibold">
+          A Client Advisor is available to explore
+        </p>
+        <p className="text-xl font-semibold">
+          the world of personalization with you.
+        </p>
+
+        {/* Section Divider / Keep Exploring */}
+        <h1 className="text-3xl font-light mt-20">KEEP EXPLORING</h1>
+
+        {/* Appointment Call-to-Action */}
+        <p className="text-xl font-sans mt-4">
+          Book an appointment with your chosen store to explore engraving and
+          embossing with a Client Advisor. Throughout your dedicated
+          consultation, you will discover the history behind this artisanal
+          service and be guided through choosing personalization options for an
+          existing piece or finding something new.
+        </p>
+
+        {/* Styled Button */}
+        <button className="relative mt-6 text-2xl font-semibold  overflow-hidden group">
+          Find Store
+          <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-black transition-all duration-500 group-hover:w-full"></span>
+        </button>
+      </div>
     </div>
   );
 }
