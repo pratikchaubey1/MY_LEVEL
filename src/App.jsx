@@ -14,6 +14,7 @@ import SerTwo from "./Page/ServiceofLevel/SerTwo";
 import SerThree from "./Page/ServiceofLevel/SerThree";
 import Serone from "./Page/ServiceofLevel/Serone";
 import Instore from "./Page/ServiceofLevel/Instore";
+import Login from "./Page/Login";
 
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
            <Route path="/SerThree" element={<SerThree/>}/>
            <Route path="/SerOne" element={<Serone/>}/>
            <Route path="/Instore" element={<Instore/>}/>
+           <Route path="/Login" element={<Login/>}/>
         </Routes>
       </div>
     </div>

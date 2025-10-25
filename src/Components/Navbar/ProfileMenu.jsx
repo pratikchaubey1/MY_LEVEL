@@ -8,10 +8,10 @@ function ProfileMenu() {
   const menuRef = useRef(null);
 
   const menuItems = [
-    { to: "/signin", text: "SIGN IN" },
-    { to: "/orders", text: "MY ORDERS" },
-    { to: "/address", text: "ADDRESS BOOK" },
-    { to: "/saved", text: "SAVED ITEMS" },
+    { to: "/Login", text: "SIGN IN" },
+    // { to: "/orders", text: "MY ORDERS" },
+    // { to: "/address", text: "ADDRESS BOOK" },
+    // { to: "/saved", text: "SAVED ITEMS" },
   ];
 
   // Animation variants
@@ -51,7 +51,7 @@ function ProfileMenu() {
             animate="visible"
             exit="exit"
             variants={dropdownVariants}
-            className="absolute right-0 top-12 bg-white shadow-lg rounded-md w-56 z-50 font-poppins"
+            className="absolute right-0 top-12 bg-white shadow-lg rounded-md w-56 h-20 z-50 font-poppins"
           >
             {menuItems.map((item, i) => (
               <Link
