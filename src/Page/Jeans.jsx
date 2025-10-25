@@ -90,16 +90,16 @@ function Jeans() {
             <p className="text-gray-500">Loading jeans...</p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {/* First 8 cards */}
             {shuffledJeans.slice(0, 8).map((item) => (
               <div
                 key={item.id}
                 data-product-id={item.id}
                 onClick={() => handleProductClick(item)}
-                className="bg-white overflow-hidden hover:scale-105 transform transition duration-300 ease-in-out mx-auto w-[90%] sm:w-full cursor-pointer shadow-sm hover:shadow-md"
+                className="bg-white overflow-hidden hover:scale-105 transform transition duration-300 ease-in-out w-full cursor-pointer shadow-sm hover:shadow-md"
               >
-                <div className="relative h-96 sm:h-80 md:h-80 w-full">
+                <div className="relative h-64 sm:h-72 md:h-80 w-full">
                   <img
                     src={item.Img}
                     alt={item.Name}
@@ -121,7 +121,7 @@ function Jeans() {
             ))}
 
             {/* Middle Section → 1 Big Image + 2 Cards */}
-            <div className="col-span-1 md:col-span-4 flex flex-col md:flex-row gap-6 items-stretch mt-10">
+            <div className="hidden md:flex col-span-2 md:col-span-4 flex-col md:flex-row gap-6 items-stretch mt-10">
               {/* Left Side Big Image */}
               <div className="md:flex-[2] flex-1 h-64 sm:h-80 md:h-[950px]">
                 <img
@@ -138,9 +138,9 @@ function Jeans() {
                     key={item.id}
                     data-product-id={item.id}
                     onClick={() => handleProductClick(item)}
-                    className="bg-white overflow-hidden mt-8 hover:scale-105 transform transition duration-300 ease-in-out mx-auto w-[90%] sm:w-full"
+                    className="bg-white overflow-hidden mt-8 hover:scale-105 transform transition duration-300 ease-in-out w-full"
                   >
-                    <div className="relative h-96 sm:h-80 md:h-100 w-full">
+                    <div className="relative h-64 sm:h-72 md:h-100 w-full">
                       <img
                         src={item.Img}
                         alt={item.Name}
@@ -169,9 +169,9 @@ function Jeans() {
                 key={item.id}
                 data-product-id={item.id}
                 onClick={() => handleProductClick(item)}
-                className="bg-white overflow-hidden hover:scale-105 transform transition duration-300 ease-in-out mx-auto w-[90%] sm:w-full cursor-pointer shadow-sm hover:shadow-md"
+                className="bg-white overflow-hidden hover:scale-105 transform transition duration-300 ease-in-out w-full cursor-pointer shadow-sm hover:shadow-md"
               >
-                <div className="relative h-96 sm:h-80 md:h-80 w-full">
+                <div className="relative h-64 sm:h-72 md:h-80 w-full">
                   <img
                     src={item.Img}
                     alt={item.Name}

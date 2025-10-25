@@ -79,15 +79,15 @@ function All() {
             <p className="text-gray-500">Loading products...</p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
             {shuffledData.map((item) => (
             <div
               key={item.id}
               data-product-id={item.id}
               onClick={() => handleProductClick(item)}
-              className="bg-white overflow-hidden hover:scale-105 transform transition duration-300 ease-in-out mx-auto w-[90%] sm:w-full cursor-pointer shadow-sm hover:shadow-md"
+              className="bg-white overflow-hidden hover:scale-105 transform transition duration-300 ease-in-out w-full cursor-pointer shadow-sm hover:shadow-md"
             >
-              <div className="relative h-96 sm:h-80 md:h-80 w-full">
+                <div className="relative h-64 sm:h-72 md:h-80 w-full">
                 <img src={item.Img} alt={item.Name} className="w-full h-full object-cover" />
                 <span className="absolute top-2 left-2 bg-black text-white text-[10px] px-2 py-0.5 uppercase">
                   New
