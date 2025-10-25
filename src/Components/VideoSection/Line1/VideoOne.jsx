@@ -62,7 +62,7 @@ function VideoOne() {
           personal stories.
         </p>
         <div className="text-center mt-6">
-           <Link to="/Keep" >
+           <Link to="/Serone" >
           <button className="py-2 px-4 transition duration-300 relative group">
             Keep Discovering
             <span className="block w-0 group-hover:w-full h-[1px] bg-black mx-auto mt-2 transition-all duration-500"></span>
