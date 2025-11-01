@@ -1,6 +1,8 @@
 // controllers/authController.js
 const UserModel = require("../models/User");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+require("dotenv").config();
 
 const Signup = async (req, res) => {
   try {
@@ -35,10 +37,14 @@ const Signup = async (req, res) => {
       role,
     });
 
-    // 4. Success response
+    // 4. Issue JWT and success response (auto-login after signup)
+    const payload = { id: newUser._id, email: newUser.email, role: newUser.role };
+    const token = jwt.sign(payload, process.env.Prab_key, { expiresIn: "10d" });
+
     return res.status(201).json({
       success: true,
       message: "Profile created successfully",
+      token,
       user: {
         id: newUser._id,
         username: newUser.username,
